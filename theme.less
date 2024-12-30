@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.0.4
+@version        1.0.5
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -14,6 +14,10 @@
 @var checkbox remove-toggle "Remove Sidebar toggle" 1
 @var checkbox remove-trombi "Remove Trombi in sidebar" 0
 @var checkbox event-registered "Registered event pattern" 1
+@var select header-position  "Navbar position" [
+   "top:top",
+   "bottom:bottom"
+]
 
 /* ==/UserStyle== */
 @-moz-document url-prefix("https://intra.epitech.eu") {
@@ -906,6 +910,26 @@
       linear-gradient(225deg, #000000 25%, transparent 25%) -29px 0/ 58px 58px,
       linear-gradient(315deg, #00000055 25%, transparent 25%) 0px 0/ 58px 58px,
       linear-gradient(45deg, #000000 25%, #e5e5f7 25%) 0px 0/ 58px 58px;
+    }
+
+    #header when (@header-position = bottom) {
+      position: fixed;
+      bottom: 0;
+      z-index: calc(infinity);
+      border-top: 1px solid @surface0;
+
+      #notification .dropdown .layer {
+        bottom: calc(100% + 8px);
+      }
+      
+      #identification .menu {
+        top: auto;
+        bottom: calc(100%);
+      }
+    }
+
+    #content when (@header-position = bottom) {
+      padding-top: 4px;
     }
 
     #header .intra {
