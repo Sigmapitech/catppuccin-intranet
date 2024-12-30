@@ -1015,6 +1015,11 @@
       }
     }
 
+    #breadcrumb ~ .buttons > .button.teams when(@remove-call-teams = 1) {
+      display: none !important;
+    }
+
+
     .actions when(@remove-call-teams = 1) {
       .callwithteams {
         display: none !important;
