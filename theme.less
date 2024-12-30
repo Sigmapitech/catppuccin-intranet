@@ -1,0 +1,26 @@
+/* ==UserStyle==
+@name           Catppuccin Intranet
+@namespace      github.com/openstyles/stylus
+@version        0.0.1
+@description    Stylesheet to make the Epitech intranet bearable.
+@author         Sigmanificient
+@preprocessor   less
+/* ==/UserStyle== */
+@-moz-document domain("intra.epitech.eu") {
+ @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
+
+ html {
+  position: relative;
+
+  &::after {
+   .material-symbols-outlined();
+
+   content: '\e732';
+   color: black;
+
+   position: fixed;
+   bottom: .5ch;
+   left: .5ch;
+  }
+ }
+}
