@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.0.0
+@version        1.0.1
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -9,6 +9,8 @@
 @supportURL     https://github.com/Sigmapitech/catppuccin-intranet/issues
 
 @preprocessor less
+
+@var checkbox tweaks "Enables UI-tweaks" 1
 
 /* ==/UserStyle== */
 @-moz-document url-prefix("https://intra.epitech.eu") {
@@ -880,5 +882,54 @@
     // make the icon white until replacement
     color: white;
     filter: contrast(1%) sepia(1%) grayscale(1) brightness(10) saturate(0) brightness(10);
+  }
+
+  body when (@tweaks = 1) {
+    // line-height: 1.6em;
+    #header .intra {
+      .navigation {
+        margin-left: 0;
+        max-width: unset;
+      }
+
+      .reserved {
+        background: url(https://1l.is/epitech-intranet/epitech_logo.png) no-repeat left center;
+        width: 60px !important;
+        margin-left: 10px;
+      }
+    }
+
+    #header #notification .dropdown {
+      position: relative;
+
+      .logo {
+        margin: 0;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        padding-inline: 1ch;
+      }
+
+      .layer {
+        right: 0;
+      }
+    }
+
+    #header #identification .infos {
+      display: flex;
+      align-items: center;
+      gap: 1;
+
+      .title {
+        padding: 0;
+        margin-left: 0;
+      }
+
+      .picture {
+        min-width: 30px
+      }
+    }
   }
 }
