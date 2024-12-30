@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.0.5
+@version        1.0.6
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -14,6 +14,8 @@
 @var checkbox remove-toggle "Remove Sidebar toggle" 1
 @var checkbox remove-trombi "Remove Trombi in sidebar" 0
 @var checkbox event-registered "Registered event pattern" 1
+@var checkbox remove-call-teams "Remove Teams call button" 1
+
 @var select header-position  "Navbar position" [
    "top:top",
    "bottom:bottom"
@@ -921,7 +923,7 @@
       #notification .dropdown .layer {
         bottom: calc(100% + 8px);
       }
-      
+
       #identification .menu {
         top: auto;
         bottom: calc(100%);
@@ -975,6 +977,52 @@
 
       .picture {
         min-width: 30px
+      }
+    }
+
+    #project #tab-group ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 2ch;
+      padding: 1em;
+
+      li {
+        width: auto !important;
+      }
+
+      li .wrapper {
+        padding: 1em;
+        border-right: none !important;
+      }
+
+      .members {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1ch;
+
+        .member {
+          margin-left: 0 !important;
+          width: auto !important;
+        }
+
+        &:after {
+          content: unset !important;
+        }
+      }
+    }
+
+    .actions when(@remove-call-teams = 1) {
+      .callwithteams {
+        display: none !important;
+      }
+
+      &:not(:has(> :nth-child(2))) {
+        display: none !important;
+        background: red;
       }
     }
   }
