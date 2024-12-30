@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.1.7
+@version        1.1.8
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -33,12 +33,20 @@
 @-moz-document url-prefix("https://intra.epitech.eu") {
   @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
 
+  & when (@tweaks = 1) {
+    & when (@remove-shadows = 1) {
+      * {
+        box-shadow: none !important;
+      }
+    }
+  }
+
   /* E-learning video is a double nested iframe */
   body:has(div)::after {
     .material-symbols-outlined();
 
-    & when not(@flavor = default) {
-      color: @lavender;
+    & when not (@flavor = default) {
+      // color: @lavender;
       content: '\e997';
     }
 
@@ -51,13 +59,7 @@
     left: .5ch;
   }
 
-  & when (@remove-shadows = 1) when (@tweaks = 1) {
-     * {
-      box-shadow: none !important;
-    }
-  }
-
-  & when not(@flavor = default) {
+  & when not (@flavor = default) {
     @rosewater: @catppuccin[@@flavor][@rosewater];
     @flamingo: @catppuccin[@@flavor][@flamingo];
     @pink: @catppuccin[@@flavor][@pink];
@@ -131,6 +133,8 @@
     }
 
     #header {
+      border-color: @surface0;
+
       .intra {
         background-color: @crust;
         border-bottom: 1px solid @surface0;
@@ -928,9 +932,8 @@
       bottom: 0;
       z-index: calc(infinity);
 
-      & when not(@flavor = default) {
-        border-top: 1px solid @surface0;
-      }
+      border-top-width: 1px;
+      border-top-style: solid;
 
       #notification .dropdown .layer {
         bottom: calc(100% + 8px);
