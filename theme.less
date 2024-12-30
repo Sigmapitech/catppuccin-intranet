@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.0.1
+@version        1.0.2
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -11,6 +11,7 @@
 @preprocessor less
 
 @var checkbox tweaks "Enables UI-tweaks" 1
+@var checkbox remove-trombi "Remove Trombi in sidebar" 0
 
 /* ==/UserStyle== */
 @-moz-document url-prefix("https://intra.epitech.eu") {
@@ -884,6 +885,7 @@
     filter: contrast(1%) sepia(1%) grayscale(1) brightness(10) saturate(0) brightness(10);
   }
 
+  /* UI Tweaks */
   body when (@tweaks = 1) {
     // line-height: 1.6em;
     #header .intra {
@@ -930,6 +932,10 @@
       .picture {
         min-width: 30px
       }
+    }
+
+    #wall #sidebar li.trombi when (remove-trombi = 1) {
+      display: none;
     }
   }
 }
