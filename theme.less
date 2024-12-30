@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.1.8
+@version        1.1.9
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -17,16 +17,18 @@
   "mocha:Mocha"
 ];
 
-@var checkbox tweaks "Enables UI-tweaks" 1
+@var checkbox tweaks "Enables all below UI-tweaks" 1
+
 @var checkbox remove-toggle "Remove Sidebar toggle" 1
 @var checkbox remove-trombi "Remove Trombi in sidebar" 0
-@var checkbox event-registered "Registered event pattern" 1
 @var checkbox remove-call-teams "Remove Teams call button" 1
 @var checkbox remove-shadows "Remove shadows" 1
 
+@var checkbox event-registered "Registered event pattern" 1
+@var checkbox new-header "Restructure the navbar" 1
 @var select header-position  "Navbar position" [
-   "top:top",
-   "bottom:bottom"
+  "top:top",
+  "bottom:bottom"
 ]
 
 /* ==/UserStyle== */
@@ -945,87 +947,91 @@
       }
     }
 
+    #header when (@new-header = 1) {}
+
     #content when (@header-position = bottom) {
       padding-top: 4px;
     }
 
-    #header .intra {
-      .navigation {
-        margin-left: 0;
-        max-width: unset;
+    #header when (@new-header = 1) {
+      .intra {
+        .navigation {
+          margin-left: 0;
+          max-width: unset;
+        }
+
+        .reserved {
+          background: url(https://1l.is/epitech-intranet/epitech_logo.png) no-repeat left center;
+          width: 60px !important;
+          margin-left: 10px;
+        }
       }
 
-      .reserved {
-        background: url(https://1l.is/epitech-intranet/epitech_logo.png) no-repeat left center;
-        width: 60px !important;
-        margin-left: 10px;
+      #notification .dropdown {
+        position: relative;
+
+        .logo {
+          margin: 0;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          padding-inline: 1ch;
+        }
+
+        .layer {
+          right: 0;
+        }
       }
-    }
 
-    #header #notification .dropdown {
-      position: relative;
-
-      .logo {
-        margin: 0;
-      }
-
-      a {
+      #identification .infos {
         display: flex;
         align-items: center;
-        padding-inline: 1ch;
+        gap: 1;
+
+        .title {
+          padding: 0;
+          margin-left: 0;
+        }
+
+        .picture {
+          min-width: 30px
+        }
       }
 
-      .layer {
-        right: 0;
-      }
-    }
-
-    #header #identification .infos {
-      display: flex;
-      align-items: center;
-      gap: 1;
-
-      .title {
-        padding: 0;
-        margin-left: 0;
-      }
-
-      .picture {
-        min-width: 30px
-      }
-    }
-
-    #project #tab-group ul {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-evenly;
-      gap: 2ch;
-      padding: 1em;
-
-      li {
-        width: auto !important;
-      }
-
-      li .wrapper {
-        padding: 1em;
-        border-right: none !important;
-      }
-
-      .members {
+      #tab-group ul {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        gap: 1ch;
+        justify-content: space-evenly;
+        gap: 2ch;
+        padding: 1em;
 
-        .member {
-          margin-left: 0 !important;
+        li {
           width: auto !important;
         }
 
-        &:after {
-          content: unset !important;
+        li .wrapper {
+          padding: 1em;
+          border-right: none !important;
+        }
+
+        .members {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 1ch;
+
+          .member {
+            margin-left: 0 !important;
+            width: auto !important;
+          }
+
+          &:after {
+            content: unset !important;
+          }
         }
       }
     }
