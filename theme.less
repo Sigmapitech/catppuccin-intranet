@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.1.10
+@version        1.2.0
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -30,6 +30,8 @@
   "top:top",
   "bottom:bottom"
 ]
+
+@var checkbox fix-group-mgnt "Fix Group Popup" 1
 
 /* ==/UserStyle== */
 @-moz-document url-prefix("https://intra.epitech.eu") {
@@ -823,6 +825,44 @@
       color: @crust;
     }
 
+    .ncompletion.complete.user {
+      position: fixed;
+      top: 0;
+      background: @crust;
+      border: 2px solid @surface0;
+      transform: translateY(.5em);
+
+      tr {
+        padding-inline: 1em;
+        display: flex;
+
+        td:nth-child(1) {
+          height: auto;
+        }
+      }
+
+      tr:hover, tr.ui-selected {
+        background-color: @base !important;
+      }
+    }
+
+    .popup.custom.manage.group {
+      .item.master,
+      .list {
+        background: @mantle;
+        border: 0;
+      }
+
+      .list ul li:hover .wrapper {
+         background: @surface0;
+      }
+    }
+
+    .popup .help {
+      background: @surface0;
+      border-bottom: none;
+    }
+
     .button.register,
     .button.unregister,
     .button.apply,
@@ -914,6 +954,68 @@
 
   /* UI Tweaks */
   body when (@tweaks = 1) {
+    .popup.custom.manage.group when (@fix-group-mgnt = 1) {
+      .item.buttons {
+        position: relative;
+        margin: 0 20px;
+        width: auto;
+        box-sizing: border-box;
+        display: flex;
+        gap: 4px;
+
+        & > a {
+          height: 20px;
+          margin: 0;
+
+          &:nth-child(2) {
+            order: 3;
+          }
+
+          &:nth-child(3) {
+            margin-left: auto;
+          }
+
+          span {
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+
+            .icon {
+              // mess-up the layout
+              display: none;
+            }
+
+            span {
+              height: auto;
+              margin: 0;
+            }
+          }
+        }
+
+      }
+
+      .data.manage.group, .help {
+        overflow: visible;
+      }
+
+      .item.master,
+      .list {
+        border: none;
+        padding: 4px;
+      }
+
+      .value input, .value textarea {
+        height: 2rem;
+        padding: 1em 0.5em;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        z-index: 1;
+      }
+    }
+
     li.trombi when (@remove-trombi = 1) {
       display: none !important;
     }
