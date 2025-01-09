@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.2.1
+@version        1.2.2
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -955,6 +955,10 @@
 
   /* UI Tweaks */
   body when (@tweaks = 1) {
+    #header #identification.expanded a span.small {
+      text-transform: none;
+    }
+
     .popup.custom.generic .data,
     .popup.custom .data {
       margin-bottom: 1em;
