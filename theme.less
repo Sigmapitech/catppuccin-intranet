@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.2.0
+@version        1.2.1
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -841,7 +841,8 @@
         }
       }
 
-      tr:hover, tr.ui-selected {
+      tr:hover,
+      tr.ui-selected {
         background-color: @base !important;
       }
     }
@@ -854,7 +855,7 @@
       }
 
       .list ul li:hover .wrapper {
-         background: @surface0;
+        background: @surface0;
       }
     }
 
@@ -954,14 +955,27 @@
 
   /* UI Tweaks */
   body when (@tweaks = 1) {
+    .popup.custom.generic .data,
+    .popup.custom .data {
+      margin-bottom: 1em;
+    }
+
     .popup.custom.manage.group when (@fix-group-mgnt = 1) {
+      .item.master .title,
+      .list ul li .title {
+        margin-left: 2px;
+        text-overflow: ellipsis;
+        white-space: pre;
+        overflow: hidden;
+      }
+
       .item.buttons {
         position: relative;
         margin: 0 20px;
         width: auto;
         box-sizing: border-box;
         display: flex;
-        gap: 4px;
+        gap: 1em;
 
         & > a {
           height: 20px;
@@ -980,7 +994,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
 
             .icon {
               // mess-up the layout
@@ -993,10 +1006,10 @@
             }
           }
         }
-
       }
 
-      .data.manage.group, .help {
+      .data.manage.group,
+      .help {
         overflow: visible;
       }
 
@@ -1006,7 +1019,12 @@
         padding: 4px;
       }
 
-      .value input, .value textarea {
+      .list {
+        height: auto;
+      }
+
+      .value input,
+      .value textarea {
         height: 2rem;
         padding: 1em 0.5em;
         width: 100%;
