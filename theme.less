@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.3.0
+@version        1.3.1
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -1171,6 +1171,16 @@
             content: unset !important;
           }
         }
+      }
+    }
+
+    .modal > .dataform + .item.buttons > {
+      position: relative !important;
+      height: auto;
+
+      & > .button {
+        margin-top: 0;
+        margin-bottom: 1.5em;
       }
     }
 
