@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.3.2
+@version        1.3.3
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -958,10 +958,57 @@
     #project #tab-group.tab li.group .members li.member .statuscode {
       color: @overlay1;
     }
+
+    .cxm ul {
+      background-color: @crust;
+      border-color: @surface0;
+
+      li.item {
+        border: 0;
+
+        &.over {
+          border: 0;
+          background-color: @base;
+        }
+      }
+
+      li.spacer div {
+        border-bottom: none;
+      }
+    }
   }
 
   /* UI Tweaks */
   body when (@tweaks = 1) {
+    .cxm ul {
+
+      li.item {
+        padding: 1ch 1em;
+
+        .icon {
+          margin: 0 !important;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 1ch;
+        }
+
+        label {
+          margin: 0;
+        }
+      }
+
+      li.spacer div {
+        border-bottom: none;
+      }
+    }
+
+    .popup.custom div.modal.close {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
     .rzone > span,
     .rzone div {
       text-align: left;
