@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.3.5
+@version        1.3.6
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -448,7 +448,7 @@
       border: 1px solid @surface0;
 
       .header,
-      .group {
+      .group.info {
         background: @base;
         width: auto; // this is required for border
       }
@@ -987,9 +987,13 @@
         border-bottom: none;
       }
     }
+
+    input[type = "checkbox"]:not(:checked) {
+      filter: invert(1) hue-rotate(180deg);
+    }
   }
 
-  /* UI Tweaks */
+  /* ------------------------- UI Tweaks ------------------------- */
   body when (@tweaks = 1) {
     .cxm ul {
 
@@ -1272,7 +1276,7 @@
       }
     }
 
-    #breadcrumb ~ .buttons > .button.teams when(@remove-call-teams = 1) {
+    .button.teams when(@remove-call-teams = 1) {
       display: none !important;
     }
 
