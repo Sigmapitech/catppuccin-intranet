@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.3.8
+@version        1.3.9
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -1455,6 +1455,19 @@
     ::selection {
       color: @blue;
       background-color: @surface0;
+    } // Epitech diff extension
+    .diff-viewer {
+
+      background-color: @mantle !important;
+      border: 1px solid @surface0 !important;
+
+      span[style = "color: green;"] {
+        color: @green !important;
+      }
+
+      span[style = "color: red;"] {
+        color: @red !important;
+      }
     }
   }
 }
