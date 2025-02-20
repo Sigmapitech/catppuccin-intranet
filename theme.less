@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.3.10
+@version        1.3.11
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -1130,6 +1130,24 @@
       linear-gradient(225deg, #000000 25%, transparent 25%) -29px 0/ 58px 58px,
       linear-gradient(315deg, #00000055 25%, transparent 25%) 0px 0/ 58px 58px,
       linear-gradient(45deg, #000000 25%, #e5e5f7 25%) 0px 0/ 58px 58px;
+    }
+
+    .prof_inst::before when (@event-registered = 1) {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.25;
+
+      /* iso generated cubes: */
+      background-size: 72px 126px;
+      background-position: 0 0, 0 0, 36px 63px, 36px 63px, 0 0, 36px 63px;
+
+      background-image: linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000),
+      linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000),
+      linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000),
+      linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000),
+      linear-gradient(60deg, #00000055 25%, transparent 25.5%, transparent 75%, #00000055 75%, #00000055),
+      linear-gradient(60deg, #00000055 25%, transparent 25.5%, transparent 75%, #00000055 75%, #00000055);
     }
 
     #header when (@header-position = bottom) {
