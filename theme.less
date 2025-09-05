@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.3.14
+@version        1.4.15
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -17,7 +17,8 @@
   "mocha:Mocha"
 ];
 
-@var checkbox my-epitech "Enable theme for myEpitech" 1
+@var checkbox result-epitech "Enable theme for Epitech results" 1
+@var checkbox my-epitech "Enable theme for my Epitech" 0
 @var checkbox tweaks "Enables all below UI-tweaks" 1
 
 @var checkbox remove-toggle "Remove Sidebar toggle" 1
@@ -39,8 +40,8 @@
 @-moz-document url-prefix("https://intra.epitech.eu") {
   @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
 
-  & when (@tweaks = 1) {
-    & when (@remove-shadows = 1) {
+  & when (@tweaks =1) {
+    & when (@remove-shadows =1) {
       * {
         box-shadow: none !important;
       }
@@ -51,12 +52,12 @@
   body:has(div)::after {
     .material-symbols-outlined();
 
-    & when not (@flavor = default) {
+    & when not (@flavor =default) {
       // color: @lavender;
       content: '\e997';
     }
 
-    & when (@tweaks = 1) {
+    & when (@tweaks =1) {
       content: '\e732';
     }
 
@@ -65,7 +66,7 @@
     left: .5ch;
   }
 
-  & when not (@flavor = default) {
+  & when not (@flavor =default) {
     @rosewater: @catppuccin[@@flavor][@rosewater];
     @flamingo: @catppuccin[@@flavor][@flamingo];
     @pink: @catppuccin[@@flavor][@pink];
@@ -730,7 +731,7 @@
           fill: @crust;
         }
 
-        .highcharts-point > path:not([fill = "#00FF00"]) {
+        .highcharts-point > path:not([fill="#00FF00"]) {
           fill: @crust;
         }
       }
@@ -946,7 +947,7 @@
       border: 1px solid @surface0;
     }
 
-    & when not (@flavor = latte) {
+    & when not (@flavor =latte) {
       #breadcrumb .icon,
       #breadcrumb ~ .message > .note span.icon,
       #header #notification .dropdown .logo,
@@ -988,7 +989,7 @@
       }
     }
 
-    input[type = "checkbox"]:not(:checked) {
+    input[type="checkbox"]:not(:checked) {
       filter: invert(1) hue-rotate(180deg);
     }
 
@@ -1018,7 +1019,7 @@
   }
 
   /* ------------------------- UI Tweaks ------------------------- */
-  body when (@tweaks = 1) {
+  body when (@tweaks =1) {
     .cxm ul {
 
       li.item {
@@ -1063,7 +1064,7 @@
       margin-bottom: 1em;
     }
 
-    .popup.custom.manage.group when (@fix-group-mgnt = 1) {
+    .popup.custom.manage.group when (@fix-group-mgnt =1) {
       .item.master .title,
       .list ul li .title {
         margin-left: 2px;
@@ -1137,15 +1138,15 @@
       }
     }
 
-    li.trombi when (@remove-trombi = 1) {
+    li.trombi when (@remove-trombi =1) {
       display: none !important;
     }
 
-    #toggle-sidebar when (@remove-toggle = 1) {
+    #toggle-sidebar when (@remove-toggle =1) {
       display: none !important;
     }
 
-    .event_registered::before when (@event-registered = 1) {
+    .event_registered::before when (@event-registered =1) {
       content: "";
       position: absolute;
       inset: 0;
@@ -1156,7 +1157,7 @@
       linear-gradient(45deg, #000000 25%, #e5e5f7 25%) 0px 0/ 58px 58px;
     }
 
-    .prof_inst::before when (@event-registered = 1) {
+    .prof_inst::before when (@event-registered =1) {
       content: "";
       position: absolute;
       inset: 0;
@@ -1174,7 +1175,7 @@
       linear-gradient(60deg, #00000055 25%, transparent 25.5%, transparent 75%, #00000055 75%, #00000055);
     }
 
-    #header when (@header-position = bottom) {
+    #header when (@header-position =bottom) {
       position: fixed;
       bottom: 0;
       z-index: calc(infinity);
@@ -1192,11 +1193,11 @@
       }
     }
 
-    #content when (@header-position = bottom) {
+    #content when (@header-position =bottom) {
       padding-top: 4px;
     }
 
-    #header when (@new-header = 1) {
+    #header when (@new-header =1) {
       .intra {
         .navigation {
           margin-left: 0;
@@ -1300,7 +1301,7 @@
         }
       }
 
-      .item.token when (@only-token = 1) {
+      .item.token when (@only-token =1) {
         display: flex;
         gap: 1em;
         align-items: center;
@@ -1318,11 +1319,11 @@
       }
     }
 
-    .button.teams when(@remove-call-teams = 1) {
+    .button.teams when(@remove-call-teams =1) {
       display: none !important;
     }
 
-    .actions when(@remove-call-teams = 1) {
+    .actions when(@remove-call-teams =1) {
       .callwithteams {
         display: none !important;
       }
@@ -1341,7 +1342,7 @@
 
 
 @-moz-document domain("myresults.epitest.eu") {
-  & when (@my-epitech = 1) and not (@flavor = default) {
+  & when (@result-epitech =1) and not (@flavor =default) {
 
     @rosewater: @catppuccin[@@flavor][@rosewater];
     @flamingo: @catppuccin[@@flavor][@flamingo];
@@ -1490,7 +1491,7 @@
       }
     }
 
-    #elm-mdl-layout-main div[style = "margin: 4px;"] {
+    #elm-mdl-layout-main div[style="margin: 4px;"] {
       margin: 0 !important;
     }
 
@@ -1508,11 +1509,11 @@
       background-color: @mantle !important;
       border: 1px solid @surface0 !important;
 
-      span[style = "color: green;"] {
+      span[style="color: green;"] {
         color: @green !important;
       }
 
-      span[style = "color: red;"] {
+      span[style="color: red;"] {
         color: @red !important;
       }
     }
@@ -1618,5 +1619,58 @@
     @base: #1e1e2e;
     @mantle: #181825;
     @crust: #11111b;
+  }
+}
+
+@-moz-document url-prefix("https://my.epitech.eu") {
+  & when (@my-epitech=1) and not (@flavor =default) {
+    /* Override the theme in both light & dark mode */
+    [data-mantine-color-scheme="dark"],
+    [data-mantine-color-scheme="light"] {
+      body {
+        --mantine-color-epitech-aqua-blue-filled: @base;
+        --mantine-color-gray-9: @crust;
+        --mantine-color-dark-6: @base;
+        --mantine-color-dark-4: @surface1;
+        --mantine-color-blue-text: @blue;
+        --mantine-color-blue-filled: @blue;
+        --mantine-color-red-text: @red;
+        --mantine-color-text: @text;
+        --mantine-color-dark-1: @overlay0;
+        --mantine-color-body: @mantle;
+        --mantine-color-default: @surface0;
+      }
+
+      .mantine-Card-section {
+        --mantine-color-dark-6: @surface1;
+      }
+    }
+
+    @rosewater: @catppuccin[@@flavor][@rosewater];
+    @flamingo: @catppuccin[@@flavor][@flamingo];
+    @pink: @catppuccin[@@flavor][@pink];
+    @mauve: @catppuccin[@@flavor][@mauve];
+    @red: @catppuccin[@@flavor][@red];
+    @maroon: @catppuccin[@@flavor][@maroon];
+    @peach: @catppuccin[@@flavor][@peach];
+    @yellow: @catppuccin[@@flavor][@yellow];
+    @green: @catppuccin[@@flavor][@green];
+    @teal: @catppuccin[@@flavor][@teal];
+    @sky: @catppuccin[@@flavor][@sky];
+    @sapphire: @catppuccin[@@flavor][@sapphire];
+    @blue: @catppuccin[@@flavor][@blue];
+    @lavender: @catppuccin[@@flavor][@lavender];
+    @text: @catppuccin[@@flavor][@text];
+    @subtext1: @catppuccin[@@flavor][@subtext1];
+    @subtext0: @catppuccin[@@flavor][@subtext0];
+    @overlay2: @catppuccin[@@flavor][@overlay2];
+    @overlay1: @catppuccin[@@flavor][@overlay1];
+    @overlay0: @catppuccin[@@flavor][@overlay0];
+    @surface2: @catppuccin[@@flavor][@surface2];
+    @surface1: @catppuccin[@@flavor][@surface1];
+    @surface0: @catppuccin[@@flavor][@surface0];
+    @base: @catppuccin[@@flavor][@base];
+    @mantle: @catppuccin[@@flavor][@mantle];
+    @crust: @catppuccin[@@flavor][@crust];
   }
 }
