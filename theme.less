@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Catppuccin Intranet
 @namespace      github.com/openstyles/stylus
-@version        1.4.1
+@version        1.4.2
 @description    Stylesheet to make the Epitech intranet bearable.
 @author         Sigmanificient
 
@@ -1500,10 +1500,13 @@
       padding: 1em;
     }
 
+
     ::selection {
       color: @blue;
       background-color: @surface0;
-    } // Epitech diff extension
+    }
+
+    /* Epitech diff extension */
     .diff-viewer {
 
       background-color: @mantle !important;
@@ -1628,8 +1631,11 @@
     [data-mantine-color-scheme="dark"],
     [data-mantine-color-scheme="light"] {
       body {
+        --mrt-base-background-color: @crust;
         --mantine-color-epitech-aqua-blue-filled: @base;
         --mantine-color-gray-9: @crust;
+        --mantine-color-dark-8: @crust;
+        --mantine-color-dark-7: @base;
         --mantine-color-dark-6: @base;
         --mantine-color-dark-4: @surface1;
         --mantine-color-blue-text: @blue;
